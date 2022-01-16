@@ -1,4 +1,4 @@
-import 'package:aaha/screens/components/bottom_nav.dart';
+import 'package:aaha/components/bottom_nav.dart';
 import 'package:aaha/screens/home/home_screen.dart';
 import 'package:aaha/screens/login/login_screen.dart';
 import 'package:aaha/screens/product_details/product_detail_screen.dart';

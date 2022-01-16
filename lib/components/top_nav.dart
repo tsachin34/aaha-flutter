@@ -1,3 +1,4 @@
+import 'package:aaha/size_config.dart';
 import 'package:flutter/material.dart';
 
 class TopNavContent extends StatelessWidget {
@@ -7,16 +8,18 @@ class TopNavContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    return Container(
+      height: (MediaQuery.of(context).size.height-MediaQuery.of(context).padding.top-MediaQuery.of(context).padding.bottom)*0.08,
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+    
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            children: const [
+            children: [
               SizedBox(
-                  height: 50,
-                  width: 50,
+                  height: 40,
+                  width: 40,
                   child: Image(
                     image: AssetImage('images/logo-final-dark.png'),
                   )),
@@ -61,8 +64,8 @@ class _SearchWidgetState extends State<SearchWidget>
   void initState() {
     super.initState();
 
-    animController = AnimationController(
-        duration: Duration(milliseconds: 500), vsync: this);
+    animController =
+        AnimationController(duration: Duration(milliseconds: 500), vsync: this);
 
     final curvedAnimation =
         CurvedAnimation(parent: animController, curve: Curves.easeOutExpo);
@@ -92,14 +95,13 @@ class _SearchWidgetState extends State<SearchWidget>
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 child: TextField(
                   cursorColor: Colors.white12,
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
-                    
                     border: InputBorder.none,
-                  
                   ),
                 ),
               ),
@@ -108,7 +110,7 @@ class _SearchWidgetState extends State<SearchWidget>
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                 color: Theme.of(context).accentColor,
+                  color: Theme.of(context).accentColor,
                   borderRadius: animation.value > 1
                       ? BorderRadius.only(
                           topLeft: Radius.circular(0),

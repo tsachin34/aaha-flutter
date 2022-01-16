@@ -18,7 +18,12 @@ class _BottomNavState extends State<BottomNav> {
         topRight: Radius.circular(10.0),
       ),
       child: Container(
+        height:(MediaQuery.of(context).size.height-MediaQuery.of(context).padding.top-MediaQuery.of(context).padding.bottom)*0.07,
         decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+        topLeft: Radius.circular(10.0),
+        topRight: Radius.circular(10.0),
+      ),
           color: Colors.red,
           boxShadow: [
             BoxShadow(

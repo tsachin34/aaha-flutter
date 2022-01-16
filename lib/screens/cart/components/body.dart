@@ -1,5 +1,5 @@
 import 'package:aaha/screens/cart/components/increase_item.dart';
-import 'package:aaha/screens/components/top_nav.dart';
+import 'package:aaha/components/top_nav.dart';
 import 'package:aaha/screens/product_details/product_detail_screen.dart';
 import 'package:aaha/size_config.dart';
 import 'package:flutter/material.dart';

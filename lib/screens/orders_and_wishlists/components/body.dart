@@ -1,4 +1,4 @@
-import 'package:aaha/screens/components/top_nav.dart';
+import 'package:aaha/components/top_nav.dart';
 import 'package:aaha/screens/home/components/body.dart';
 import 'package:aaha/screens/orders_and_wishlists/components/wishlistitem.dart';
 import 'package:aaha/screens/orders_and_wishlists/oders_and_whislist_screen.dart';

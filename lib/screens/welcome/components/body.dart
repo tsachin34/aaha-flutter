@@ -1,7 +1,10 @@
+import 'dart:io' show Platform;
+import 'package:aaha/screens/signup/signup_screen.dart';
 import 'package:aaha/screens/welcome/components/welcome_component.dart';
 import 'package:aaha/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:aaha/screens/login/login_screen.dart';
+import 'package:flutter/services.dart';
 
 class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
@@ -27,16 +30,18 @@ class _BodyState extends State<Body> {
           Expanded(
             child: Container(
               width: double.infinity,
-              height:getProportionateScreenHeight(context, 400),
+              height: getProportionateScreenHeight(context, 400),
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.vertical(
-                  bottom: Radius.elliptical(190, 130),
+                borderRadius:  BorderRadius.vertical(
+                  bottom: Radius.elliptical(getProportionateScreenWidth(context, 190), getProportionateScreenWidth(context, 130)),
                 ),
                 color: Theme.of(context).accentColor,
               ),
               child: Column(
                 children: [
-                  const Spacer(flex: 2,),
+                  const Spacer(
+                    flex: 2,
+                  ),
                   Container(
                       margin: const EdgeInsets.only(bottom: 10),
                       child: Container(
@@ -67,7 +72,7 @@ class _BodyState extends State<Body> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => LoginPage(),
+                        builder: (context) => SignupPage(),
                       ),
                     );
                   },
@@ -83,7 +88,11 @@ class _BodyState extends State<Body> {
                 style: TextStyle(color: Colors.black45),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (Platform.isAndroid) {
+                      SystemNavigator.pop();
+                    }
+                  },
                   style: TextButton.styleFrom(
                       // padding: EdgeInsets.zero,
                       alignment: Alignment.centerLeft),

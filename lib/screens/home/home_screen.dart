@@ -1,4 +1,4 @@
-import 'package:aaha/screens/components/bottom_nav.dart';
+import 'package:aaha/components/bottom_nav.dart';
 import 'package:aaha/screens/store_profile/store_profile_screen.dart';
 import 'package:aaha/screens/home/components/body.dart';
 import 'package:flutter/material.dart';

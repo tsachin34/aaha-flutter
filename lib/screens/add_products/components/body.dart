@@ -1,4 +1,4 @@
-import 'package:aaha/screens/components/top_nav.dart';
+import 'package:aaha/components/top_nav.dart';
 import 'package:aaha/screens/store_edit_info/edit_store_screen.dart';
 import 'package:aaha/size_config.dart';
 import 'package:flutter/material.dart';

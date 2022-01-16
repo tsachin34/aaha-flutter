@@ -1,10 +1,27 @@
 import 'package:aaha/screens/product_details/product_detail_screen.dart';
+import 'package:aaha/screens/store_profile/components/product.dart';
 import 'package:flutter/material.dart';
 import 'package:aaha/size_config.dart';
 
-class StoreProductPage extends StatelessWidget {
+//displays all the products available in the profile of a store
+
+class StoreProductPage extends StatefulWidget {
   const StoreProductPage({Key? key}) : super(key: key);
 
+  @override
+  State<StoreProductPage> createState() => _StoreProductPageState();
+}
+
+List<Product> _productitem = [
+  Product(
+      productName: "Choco Mint",
+      price: "Rs 1100",
+      imgPath: "images/key-mouse.jpg",
+      added: false,
+      isFavourite: false)
+];
+
+class _StoreProductPageState extends State<StoreProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,19 +36,18 @@ class StoreProductPage extends StatelessWidget {
                 horizontal: getProportionateScreenWidth(context, 15)),
             width: MediaQuery.of(context).size.width - 30,
             height: MediaQuery.of(context).size.width - 30,
-            child: GridView.count(
-              crossAxisCount: 2,
+            child: GridView.builder(
+              // crossAxisCount: 2,
+              itemCount: _productitem.length,
               primary: false,
-              crossAxisSpacing: 15,
-              childAspectRatio: 0.8,
-              children: [
-                _buildCard('Choco Mint', 'Rs 1100', 'images/key-mouse.jpg',
-                    false, true, context),
-                _buildCard('Choco Mint', 'Rs 1100', 'images/key-mouse.jpg',
-                    false, false, context),
-                _buildCard('Choco Mint', 'Rs 1100', 'images/key-mouse.jpg',
-                    false, false, context),
-              ],
+              // crossAxisSpacing: 15,
+              // childAspectRatio: 0.8,
+              itemBuilder: (context,index)=>_buildCard(_productitem[index]),
+              gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+                childAspectRatio: 0.8,
+                crossAxisSpacing: 15
+              ),
+              
             ),
           ),
         ],
@@ -39,8 +55,7 @@ class StoreProductPage extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(String name, String price, String imgPath, bool added,
-      bool isFavrouite, context) {
+  Widget _buildCard(Product product) {
     return Padding(
       padding: const EdgeInsets.only(top: 10, bottom: 5, left: 0, right: 0),
       child: InkWell(
@@ -66,7 +81,7 @@ class StoreProductPage extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     image: DecorationImage(
-                      image: AssetImage(imgPath),
+                      image: AssetImage(product.imgPath),
                       fit: BoxFit.cover,
                     )),
               ),
@@ -74,7 +89,7 @@ class StoreProductPage extends StatelessWidget {
                 height: 7,
               ),
               Text(
-                name,
+                product.productName,
                 style: TextStyle(
                     color: Color(0xFF575E67),
                     fontFamily: 'Quicksand',
@@ -82,7 +97,7 @@ class StoreProductPage extends StatelessWidget {
               ),
               Row(children: [
                 Text(
-                  price,
+                  product.price,
                   style: TextStyle(
                       color: Color(0xFFCC8053),
                       fontFamily: 'Quicksand',

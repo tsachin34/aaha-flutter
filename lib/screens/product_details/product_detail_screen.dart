@@ -1,6 +1,6 @@
 import 'package:aaha/constants.dart';
-import 'package:aaha/screens/components/bottom_nav.dart';
-import 'package:aaha/screens/components/top_nav.dart';
+import 'package:aaha/components/bottom_nav.dart';
+import 'package:aaha/components/top_nav.dart';
 import 'package:aaha/screens/home/home_screen.dart';
 import 'package:aaha/screens/product_details/components/my_bullet.dart';
 import 'package:aaha/size_config.dart';

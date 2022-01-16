@@ -1,4 +1,4 @@
-import 'package:aaha/screens/components/top_nav.dart';
+import 'package:aaha/components/top_nav.dart';
 import 'package:aaha/screens/store_edit_info/components/suffix_Icon.dart';
 import 'package:aaha/screens/store_edit_info/edit_store_screen.dart';
 import 'package:aaha/screens/user_profile/user_profile_screen.dart';
