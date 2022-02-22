@@ -252,10 +252,11 @@ class _SignUpFormState extends State<SignUpForm> {
                   borderRadius: BorderRadius.circular(10)),
               child: TextButton(
                 onPressed: () {
-                   if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-                        // Navigator.pushNamed(context, LoginSucessScreen.routeName);
-                      }
+                  if (_formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    // Navigator.pushNamed(context, LoginSucessScreen.routeName);
+
+                  }
                 },
                 child: const Text(
                   'REGISTER',
@@ -305,8 +306,8 @@ class _SignUpFormState extends State<SignUpForm> {
                 const Text("Already have an account?"),
                 TextButton(
                     onPressed: () {
-                     
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
                     },
                     child: const Text(
                       "Login",

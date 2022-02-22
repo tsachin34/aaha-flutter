@@ -41,6 +41,7 @@ class _BodyState extends State<Body> {
         children: [
           const TopNavContent(),
           Container(
+             height: (MediaQuery.of(context).size.height-MediaQuery.of(context).padding.top-MediaQuery.of(context).padding.bottom)*0.837, 
               padding: EdgeInsets.symmetric(
                 horizontal: 15,
               ),

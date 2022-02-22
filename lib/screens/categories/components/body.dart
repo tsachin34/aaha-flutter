@@ -1,3 +1,4 @@
+import 'package:aaha/screens/categories/components/category_data.dart';
 import 'package:aaha/screens/categories/components/electronics_screen.dart';
 import 'package:aaha/components/top_nav.dart';
 import 'package:aaha/screens/store_edit_info/edit_store_screen.dart';
@@ -17,10 +18,11 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   int _selectedINdex = 2;
 
-  final tabs = [
+
+  final tabs = const [
     ElectronicsScreen(),
     Center(child: Text("hello")),
-   ElectronicsScreen(),
+    ElectronicsScreen(),
     Center(child: Text("pretty")),
     Center(child: Text("stranger")),
   ];
@@ -65,59 +67,53 @@ class _BodyState extends State<Body> {
         children: [
           const TopNavContent(),
           Container(
+              padding: EdgeInsets.only(
+                  top: getProportionateScreenHeight(context, 20)),
               width: double.infinity,
-              // height: 450,
+              height: (MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).padding.top -
+                      MediaQuery.of(context).padding.bottom) *
+                  0.837,
               decoration: BoxDecoration(
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
                   ),
                   color: Theme.of(context).backgroundColor),
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.start,
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: getProportionateScreenHeight(context, 10),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: getProportionateScreenWidth(context, 20)),
-                    width: double.infinity,
-                    height: getProportionateScreenHeight(context, 500),
-                    child: SingleChildScrollView(
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Categories",
-                              style: TextStyle(
-                                  fontSize:
-                                      getProportionateScreenWidth(context, 18)),
-                              textAlign: TextAlign.start,
-                            ),
-                            SizedBox(
-                              height: getProportionateScreenHeight(context, 20),
-                            ),
-                            Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: _icons
-                                    .asMap()
-                                    .entries
-                                    .map(
-                                      (MapEntry map) => _buildIcon(map.key),
-                                    )
-                                    .toList()),
-                            SizedBox(
-                              height: getProportionateScreenHeight(context, 20),
-                            ),
-                            tabs[_selectedINdex],
-                          ]),
-                    ),
-                  )
-                ],
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: getProportionateScreenWidth(context, 20)),
+                width: double.infinity,
+                child: SingleChildScrollView(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Categories",
+                          style: TextStyle(
+                              fontSize:
+                                  getProportionateScreenWidth(context, 18)),
+                          textAlign: TextAlign.start,
+                        ),
+                        SizedBox(
+                          height: getProportionateScreenHeight(context, 20),
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: _icons
+                                .asMap()
+                                .entries
+                                .map(
+                                  (MapEntry map) => _buildIcon(map.key),
+                                )
+                                .toList()),
+                        SizedBox(
+                          height: getProportionateScreenHeight(context, 20),
+                        ),
+                        tabs[_selectedINdex],
+                      ]),
+                ),
               ))
         ],
       ),

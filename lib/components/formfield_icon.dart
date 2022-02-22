@@ -14,7 +14,12 @@ class FormFieldIcon extends StatelessWidget {
       height: 40,
       width: 45,
       decoration: BoxDecoration(
-          color: Colors.grey[400], borderRadius: BorderRadius.circular(6)),
+        color: Colors.grey[400],
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(6),
+          bottomLeft: Radius.circular(6),
+        ),
+      ),
       child: Icon(
         icon,
         size: 32,
